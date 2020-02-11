@@ -1,0 +1,10 @@
+<h1><%= "Task creation" %></h1>
+
+<%= form_with model: Task.new do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :details %>
+  <%= f.text_field :details %>
+  <%= f.submit("Create") %>
+<% end %>
+

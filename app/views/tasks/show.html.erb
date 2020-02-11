@@ -1,0 +1,21 @@
+<h1><%= @task.title %></h1>
+<div class="card" style="width: 18rem; display: flex; align-items: center; background-color: #FEF;">
+  <div class="card-body">
+    <p class="card-text"><%= @task.details %></p>
+  </div>
+</div>
+
+<div class="card" style="width: 18rem; display: flex; align-items: center;">
+  <div class="card-body" style="display: flex; align-items: center; justify-content: left">
+    <% if @task.completed == true %>
+      <input type="checkbox" name="<%= @task.id %>" value="<%= @task.title %>" checked>
+      <p>This task is completed</p>
+    <% else %>
+      <input type="checkbox" name="<%= @task.id %>" value="<%= @task.title %>">
+      <p>This task is not completed yet</p>
+    <% end %>
+  </div>
+</div>
+
+ <%= link_to  "<button type='button' class='btn btn-primary'>Home</button>".html_safe, tasks_path(@task.id)%>
+

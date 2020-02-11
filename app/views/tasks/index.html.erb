@@ -1,0 +1,35 @@
+<h1 style="margin-top: 2rem;">Tasks</h1>
+
+<div class="line"></div>
+<% @tasks.each do |task| %>
+  <div class="list" style="padding-top: 1rem; padding-bottom: 1rem; width: 30rem; margin: 0;">
+
+   <% if task.completed == true %>
+      <input type="checkbox" class="check" name="<%= task.id %>" id="<%= task.id %>" value="<%= task.title %>" checked>
+    <% else %>
+      <input type="checkbox" name="<%= task.id %>" id="<%= task.id %>" value="<%= task.title %>">
+    <% end %>
+
+    <div style="display: inline;">
+      <%= link_to "#{task.title}", task_path(task.id) %>
+
+      <%= link_to  "<i class='far fa-trash-alt'></i>".html_safe, task_path(task.id),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+
+    </div>
+    <%= link_to  "<button type='button' class='btn btn-primary'>Edit</button>".html_safe, task_edit_path(task.id)%>
+    </div>
+    <div class="line"></div>
+  <% end %>
+
+  <%= link_to  "<button type='button' class='btn btn-primary' style='margin-top: 3rem;'>Add a new task</button>".html_safe, task_new_path%>
+
+<!-- <div class="line"></div> -->
+
+
+
+
+
+
+
